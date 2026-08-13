@@ -36,25 +36,25 @@ export const OutroCard: React.FC<{ startAt: number }> = ({ startAt }) => {
         cursive="Evangeline"
         fine="Accesorios"
         startDelay={8}
-        cursiveSize={118}
-        fineSize={30}
+        cursiveSize={136}
+        fineSize={38}
       />
-      <div style={{ marginTop: 4 }}>
+      <div style={{ marginTop: 6 }}>
         <CascadeText
           lines={items}
           startDelay={26}
           staggerFrames={7}
-          fontSize={34}
+          fontSize={40}
           color="#f3e3d3"
-          weight={400}
+          weight={500}
         />
       </div>
-      <div style={{ marginTop: 14 }}>
+      <div style={{ marginTop: 16 }}>
         <CascadeText
           lines={["👉 *Descubre más* en el link de mi bio"]}
           startDelay={52}
           staggerFrames={0}
-          fontSize={30}
+          fontSize={34}
           color="#f3e3d3"
           weight={600}
         />

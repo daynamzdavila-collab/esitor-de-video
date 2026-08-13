@@ -23,8 +23,8 @@ export const EditorialTitle: React.FC<{
   fine,
   startDelay = 0,
   align = "center",
-  cursiveSize = 150,
-  fineSize = 36,
+  cursiveSize = 176,
+  fineSize = 46,
   cursiveColor = "#fbf1e6",
   fineColor = "#f3ddc7",
   accentColor = "#e0a75e",
@@ -63,9 +63,9 @@ export const EditorialTitle: React.FC<{
           color: cursiveColor,
           opacity: cursiveOpacity,
           transform: `translateY(${cursiveY}px) rotate(-4deg)`,
-          WebkitTextStroke: "2px rgba(35,22,13,0.65)",
+          WebkitTextStroke: "2.6px rgba(35,22,13,0.7)",
           textShadow:
-            "0 6px 10px rgba(20,12,7,0.7), 0 14px 40px rgba(20,12,7,0.55)",
+            "0 6px 10px rgba(20,12,7,0.75), 0 14px 40px rgba(20,12,7,0.6)",
           lineHeight: 1,
         }}
       >
@@ -77,8 +77,8 @@ export const EditorialTitle: React.FC<{
           fontSize: fineSize,
           color: fineColor,
           opacity: fineOpacity,
-          transform: `translateX(${fineX}px) translateY(-6px)`,
-          letterSpacing: "0.38em",
+          transform: `translateX(${fineX}px) translateY(-2px)`,
+          letterSpacing: "0.22em",
           textTransform: "uppercase",
           marginLeft: align === "center" ? 0 : 6,
           WebkitTextStroke: "0.6px rgba(35,22,13,0.5)",

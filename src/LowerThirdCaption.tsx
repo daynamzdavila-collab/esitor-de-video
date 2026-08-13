@@ -41,7 +41,7 @@ export const LowerThirdCaption: React.FC<{
         bottom: 220,
         left: side === "left" ? 56 : undefined,
         right: side === "right" ? 56 : undefined,
-        maxWidth: "82%",
+        maxWidth: "92%",
         opacity,
         transform: `translateX(${translateX}px)`,
         textAlign: side,
@@ -50,13 +50,13 @@ export const LowerThirdCaption: React.FC<{
       <div
         style={{
           fontFamily: FONT_CURSIVE,
-          fontSize: 66,
+          fontSize: 84,
           color: "#fbf1e6",
           transform: "rotate(-2deg)",
           lineHeight: 1,
-          WebkitTextStroke: "1.6px rgba(35,22,13,0.6)",
+          WebkitTextStroke: "2px rgba(35,22,13,0.65)",
           textShadow:
-            "0 5px 10px rgba(20,12,7,0.7), 0 12px 30px rgba(20,12,7,0.5)",
+            "0 5px 10px rgba(20,12,7,0.75), 0 12px 30px rgba(20,12,7,0.55)",
         }}
       >
         {renderEmphasis(cursiveWord, "#e0a75e")}
@@ -64,12 +64,13 @@ export const LowerThirdCaption: React.FC<{
       <div
         style={{
           fontFamily: FONT_FINE_MEDIUM,
-          fontSize: 32,
+          fontSize: 42,
           color: "#f3ddc7",
-          letterSpacing: "0.05em",
-          marginTop: 6,
-          WebkitTextStroke: "0.5px rgba(35,22,13,0.45)",
-          textShadow: "0 3px 12px rgba(20,12,7,0.75)",
+          letterSpacing: "0.02em",
+          marginTop: 8,
+          lineHeight: 1.2,
+          WebkitTextStroke: "0.7px rgba(35,22,13,0.5)",
+          textShadow: "0 3px 12px rgba(20,12,7,0.8)",
         }}
       >
         {renderEmphasis(fineText, "#e0a75e")}
