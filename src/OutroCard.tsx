@@ -1,8 +1,9 @@
 import React from "react";
 import { interpolate, spring, useCurrentFrame, useVideoConfig } from "remotion";
 import { CascadeText } from "./CascadeText";
+import { EditorialTitle } from "./EditorialTitle";
 
-/** Tarjeta final de cierre (CTA) que se desliza y oscurece el fondo para resaltar el texto. */
+/** Tarjeta final de cierre (CTA): scrim parejo color cafe (sin esquinas oscuras) para resaltar el texto. */
 export const OutroCard: React.FC<{ startAt: number }> = ({ startAt }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
@@ -10,12 +11,12 @@ export const OutroCard: React.FC<{ startAt: number }> = ({ startAt }) => {
   if (local < 0) return null;
 
   const dim = spring({ frame: local, fps, config: { damping: 20 } });
-  const bgOpacity = interpolate(dim, [0, 1], [0, 0.78]);
+  const scrimOpacity = interpolate(dim, [0, 1], [0, 0.62]);
 
   const items = [
     "Un vistazo rápido a mi mesa",
     "de trabajo antes de que",
-    "empiece la magia ✨",
+    "empiece la magia",
   ];
 
   return (
@@ -23,39 +24,39 @@ export const OutroCard: React.FC<{ startAt: number }> = ({ startAt }) => {
       style={{
         position: "absolute",
         inset: 0,
-        background: `radial-gradient(circle at 50% 40%, rgba(40,28,14,${bgOpacity}) 0%, rgba(10,7,4,${bgOpacity}) 100%)`,
+        background: `rgba(48,34,24,${scrimOpacity})`,
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
-        gap: 36,
+        gap: 30,
       }}
     >
-      <CascadeText
-        lines={["EVANGELINE", "ACCESORIOS"]}
+      <EditorialTitle
+        cursive="Evangeline"
+        fine="Accesorios"
         startDelay={8}
-        staggerFrames={8}
-        fontSize={66}
-        color="#f4d99b"
+        cursiveSize={104}
+        fineSize={26}
       />
-      <div style={{ marginTop: 10 }}>
+      <div style={{ marginTop: 4 }}>
         <CascadeText
           lines={items}
           startDelay={26}
           staggerFrames={7}
-          fontSize={34}
-          color="#fff8ec"
-          weight={600}
+          fontSize={30}
+          color="#f3e3d3"
+          weight={300}
         />
       </div>
-      <div style={{ marginTop: 18 }}>
+      <div style={{ marginTop: 14 }}>
         <CascadeText
           lines={["👉 Descubre más en el link de mi bio"]}
           startDelay={52}
           staggerFrames={0}
-          fontSize={30}
-          color="#d4af6a"
-          weight={700}
+          fontSize={26}
+          color="#c9a27e"
+          weight={500}
         />
       </div>
     </div>

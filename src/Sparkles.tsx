@@ -34,7 +34,7 @@ export const Sparkles: React.FC<{ opacity?: number }> = ({ opacity = 1 }) => {
               fontSize: s.size,
               opacity: twinkle * opacity,
               transform: `scale(${0.6 + twinkle * 0.6}) rotate(${frame * 0.6}deg)`,
-              filter: "drop-shadow(0 0 6px rgba(255,215,120,0.8))",
+              filter: "drop-shadow(0 0 6px rgba(233,201,180,0.75))",
             }}
           >
             ✨

@@ -6,11 +6,11 @@ import {
   staticFile,
   useCurrentFrame,
 } from "remotion";
-import { CascadeText } from "./CascadeText";
+import { EditorialTitle } from "./EditorialTitle";
 import { LowerThirdCaption } from "./LowerThirdCaption";
 import { OutroCard } from "./OutroCard";
-import { ProgressBar } from "./ProgressBar";
 import { Sparkles } from "./Sparkles";
+import { StudioLight } from "./StudioLight";
 
 export const AsmrVideo: React.FC = () => {
   const frame = useCurrentFrame();
@@ -20,16 +20,8 @@ export const AsmrVideo: React.FC = () => {
     extrapolateRight: "clamp",
   });
 
-  const vignetteStyle: React.CSSProperties = {
-    position: "absolute",
-    inset: 0,
-    background:
-      "radial-gradient(ellipse at center, rgba(0,0,0,0) 55%, rgba(0,0,0,0.55) 100%)",
-    pointerEvents: "none",
-  };
-
   return (
-    <AbsoluteFill style={{ backgroundColor: "#0c0a08" }}>
+    <AbsoluteFill style={{ backgroundColor: "#241a12" }}>
       <AbsoluteFill>
         <OffthreadVideo
           src={staticFile("asmr_source.mp4")}
@@ -37,14 +29,14 @@ export const AsmrVideo: React.FC = () => {
         />
       </AbsoluteFill>
 
-      <Sparkles opacity={0.9} />
-      <div style={vignetteStyle} />
+      <StudioLight />
+      <Sparkles opacity={0.85} />
 
-      {/* Hook inicial en cascada */}
+      {/* Hook inicial, tipografia editorial (cursiva + letra fina) */}
       <div
         style={{
           position: "absolute",
-          top: 140,
+          top: 150,
           left: 0,
           right: 0,
           display: "flex",
@@ -52,33 +44,32 @@ export const AsmrVideo: React.FC = () => {
           opacity: hookOpacity,
         }}
       >
-        <CascadeText
-          lines={["POV:", "así se ve mi caos", "ordenado ✨"]}
-          startDelay={4}
-          staggerFrames={8}
-          fontSize={46}
-        />
+        <EditorialTitle cursive="mi caos" fine="ordenado" startDelay={4} />
       </div>
 
       <LowerThirdCaption
-        text="Antes de que empiece la magia 🧡"
+        cursiveWord="Antes"
+        fineText="de que empiece la magia"
         enterAt={95}
         holdFrames={110}
+        side="left"
       />
       <LowerThirdCaption
-        text="Cada cosa en su lugar, para tu pieza"
+        cursiveWord="Su lugar"
+        fineText="cada cosa, para tu pieza"
         enterAt={255}
         holdFrames={120}
+        side="right"
       />
       <LowerThirdCaption
-        text="Así es mi mesa de trabajo ✋"
+        cursiveWord="Mi mesa"
+        fineText="asi es como trabajo"
         enterAt={400}
         holdFrames={120}
+        side="left"
       />
 
       <OutroCard startAt={560} />
-
-      <ProgressBar />
     </AbsoluteFill>
   );
 };

@@ -1,5 +1,6 @@
 import React from "react";
 import { interpolate, spring, useCurrentFrame, useVideoConfig } from "remotion";
+import { FONT_FINE_MEDIUM } from "./fonts";
 
 /**
  * Bloque de texto que entra linea por linea en cascada (efecto waterfall):
@@ -13,14 +14,16 @@ export const CascadeText: React.FC<{
   fontSize?: number;
   color?: string;
   weight?: number;
+  letterSpacing?: string;
 }> = ({
   lines,
   startDelay = 0,
   staggerFrames = 6,
   align = "center",
-  fontSize = 54,
-  color = "#ffffff",
-  weight = 800,
+  fontSize = 40,
+  color = "#f3e3d3",
+  weight = 500,
+  letterSpacing = "0.06em",
 }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
@@ -48,15 +51,16 @@ export const CascadeText: React.FC<{
           <div
             key={i}
             style={{
-              fontFamily: "Poppins, Arial, sans-serif",
+              fontFamily: FONT_FINE_MEDIUM,
               fontSize,
               fontWeight: weight,
               color,
               textAlign: align,
               opacity,
               transform: `translateY(${translateY}px)`,
-              textShadow: "0 4px 18px rgba(0,0,0,0.55)",
-              lineHeight: 1.15,
+              textShadow: "0 3px 14px rgba(40,25,15,0.4)",
+              lineHeight: 1.25,
+              letterSpacing,
             }}
           >
             {line}

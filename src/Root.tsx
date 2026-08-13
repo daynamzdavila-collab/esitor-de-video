@@ -1,9 +1,12 @@
 import { Composition } from "remotion";
 import "./index.css";
 import { AsmrVideo } from "./AsmrVideo";
+import { ensureFontsLoaded } from "./fonts";
 
 const FPS = 30;
 const DURATION_IN_FRAMES = 687; // ~22.9s, duracion del video original
+
+ensureFontsLoaded();
 
 export const RemotionRoot: React.FC = () => {
   return (
