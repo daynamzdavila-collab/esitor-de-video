@@ -53,25 +53,25 @@ export const AsmrVideo: React.FC = () => {
         }}
       >
         <CascadeText
-          lines={["✨ ASMR ✨", "Empacando pedidos"]}
+          lines={["POV:", "así se ve mi caos", "ordenado ✨"]}
           startDelay={4}
           staggerFrames={8}
-          fontSize={52}
+          fontSize={46}
         />
       </div>
 
       <LowerThirdCaption
-        text="Alambre 100% dorado 🧡"
+        text="Antes de que empiece la magia 🧡"
         enterAt={95}
         holdFrames={110}
       />
       <LowerThirdCaption
-        text="Empacando tus aretes con amor"
+        text="Cada cosa en su lugar, para tu pieza"
         enterAt={255}
         holdFrames={120}
       />
       <LowerThirdCaption
-        text="Cada pedido, hecho a mano ✋"
+        text="Así es mi mesa de trabajo ✋"
         enterAt={400}
         holdFrames={120}
       />

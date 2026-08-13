@@ -12,7 +12,11 @@ export const OutroCard: React.FC<{ startAt: number }> = ({ startAt }) => {
   const dim = spring({ frame: local, fps, config: { damping: 20 } });
   const bgOpacity = interpolate(dim, [0, 1], [0, 0.78]);
 
-  const items = ["🧵 Alambre dorado", "✋ Hecho a mano", "💌 Pedidos por DM"];
+  const items = [
+    "Un vistazo rápido a mi mesa",
+    "de trabajo antes de que",
+    "empiece la magia ✨",
+  ];
 
   return (
     <div
@@ -42,6 +46,16 @@ export const OutroCard: React.FC<{ startAt: number }> = ({ startAt }) => {
           fontSize={34}
           color="#fff8ec"
           weight={600}
+        />
+      </div>
+      <div style={{ marginTop: 18 }}>
+        <CascadeText
+          lines={["👉 Descubre más en el link de mi bio"]}
+          startDelay={52}
+          staggerFrames={0}
+          fontSize={30}
+          color="#d4af6a"
+          weight={700}
         />
       </div>
     </div>
