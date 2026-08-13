@@ -1,5 +1,6 @@
 import React from "react";
 import { interpolate, spring, useCurrentFrame, useVideoConfig } from "remotion";
+import { renderEmphasis } from "./EmphasisText";
 import { FONT_FINE_MEDIUM } from "./fonts";
 
 /**
@@ -15,6 +16,7 @@ export const CascadeText: React.FC<{
   color?: string;
   weight?: number;
   letterSpacing?: string;
+  accentColor?: string;
 }> = ({
   lines,
   startDelay = 0,
@@ -24,6 +26,7 @@ export const CascadeText: React.FC<{
   color = "#f3e3d3",
   weight = 500,
   letterSpacing = "0.06em",
+  accentColor = "#e0a75e",
 }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
@@ -58,12 +61,14 @@ export const CascadeText: React.FC<{
               textAlign: align,
               opacity,
               transform: `translateY(${translateY}px)`,
-              textShadow: "0 3px 14px rgba(40,25,15,0.4)",
+              WebkitTextStroke: "0.6px rgba(35,22,13,0.5)",
+              textShadow:
+                "0 4px 10px rgba(20,12,7,0.7), 0 8px 24px rgba(20,12,7,0.45)",
               lineHeight: 1.25,
               letterSpacing,
             }}
           >
-            {line}
+            {renderEmphasis(line, accentColor)}
           </div>
         );
       })}

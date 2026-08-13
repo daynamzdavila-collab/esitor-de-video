@@ -9,7 +9,6 @@ import {
 import { EditorialTitle } from "./EditorialTitle";
 import { LowerThirdCaption } from "./LowerThirdCaption";
 import { OutroCard } from "./OutroCard";
-import { Sparkles } from "./Sparkles";
 import { StudioLight } from "./StudioLight";
 
 export const AsmrVideo: React.FC = () => {
@@ -30,13 +29,12 @@ export const AsmrVideo: React.FC = () => {
       </AbsoluteFill>
 
       <StudioLight />
-      <Sparkles opacity={0.85} />
 
-      {/* Hook inicial, tipografia editorial (cursiva + letra fina) */}
+      {/* Hook inicial: el elemento mas llamativo, centrado en el video */}
       <div
         style={{
           position: "absolute",
-          top: 150,
+          top: "38%",
           left: 0,
           right: 0,
           display: "flex",
@@ -44,26 +42,26 @@ export const AsmrVideo: React.FC = () => {
           opacity: hookOpacity,
         }}
       >
-        <EditorialTitle cursive="mi caos" fine="ordenado" startDelay={4} />
+        <EditorialTitle cursive="*mi caos*" fine="ordenado" startDelay={4} />
       </div>
 
       <LowerThirdCaption
         cursiveWord="Antes"
-        fineText="de que empiece la magia"
+        fineText="de que empiece la *magia*"
         enterAt={95}
         holdFrames={110}
         side="left"
       />
       <LowerThirdCaption
         cursiveWord="Su lugar"
-        fineText="cada cosa, para tu pieza"
+        fineText="cada cosa, para *tu pieza*"
         enterAt={255}
         holdFrames={120}
         side="right"
       />
       <LowerThirdCaption
         cursiveWord="Mi mesa"
-        fineText="asi es como trabajo"
+        fineText="asi es como *trabajo*"
         enterAt={400}
         holdFrames={120}
         side="left"

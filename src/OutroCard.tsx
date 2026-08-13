@@ -16,7 +16,7 @@ export const OutroCard: React.FC<{ startAt: number }> = ({ startAt }) => {
   const items = [
     "Un vistazo rápido a mi mesa",
     "de trabajo antes de que",
-    "empiece la magia",
+    "empiece la *magia*",
   ];
 
   return (
@@ -36,27 +36,27 @@ export const OutroCard: React.FC<{ startAt: number }> = ({ startAt }) => {
         cursive="Evangeline"
         fine="Accesorios"
         startDelay={8}
-        cursiveSize={104}
-        fineSize={26}
+        cursiveSize={118}
+        fineSize={30}
       />
       <div style={{ marginTop: 4 }}>
         <CascadeText
           lines={items}
           startDelay={26}
           staggerFrames={7}
-          fontSize={30}
+          fontSize={34}
           color="#f3e3d3"
-          weight={300}
+          weight={400}
         />
       </div>
       <div style={{ marginTop: 14 }}>
         <CascadeText
-          lines={["👉 Descubre más en el link de mi bio"]}
+          lines={["👉 *Descubre más* en el link de mi bio"]}
           startDelay={52}
           staggerFrames={0}
-          fontSize={26}
-          color="#c9a27e"
-          weight={500}
+          fontSize={30}
+          color="#f3e3d3"
+          weight={600}
         />
       </div>
     </div>

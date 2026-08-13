@@ -1,11 +1,12 @@
 import React from "react";
 import { interpolate, spring, useCurrentFrame, useVideoConfig } from "remotion";
+import { renderEmphasis } from "./EmphasisText";
 import { FONT_CURSIVE, FONT_FINE_MEDIUM } from "./fonts";
 
 /**
  * Caption editorial de dos tonos (palabra cursiva + frase en letra fina)
- * que entra en cascada y se acomoda desplazada, sin caja ni borde,
- * solo un halo suave detras para legibilidad.
+ * que entra en cascada. Contraste via stroke + sombra (sin caja ni borde).
+ * Las palabras entre *asteriscos* salen resaltadas en color de acento.
  */
 export const LowerThirdCaption: React.FC<{
   cursiveWord: string;
@@ -37,37 +38,41 @@ export const LowerThirdCaption: React.FC<{
     <div
       style={{
         position: "absolute",
-        bottom: 230,
-        left: side === "left" ? 64 : undefined,
-        right: side === "right" ? 64 : undefined,
-        maxWidth: "78%",
+        bottom: 220,
+        left: side === "left" ? 56 : undefined,
+        right: side === "right" ? 56 : undefined,
+        maxWidth: "82%",
         opacity,
         transform: `translateX(${translateX}px)`,
         textAlign: side,
-        filter: "drop-shadow(0 8px 20px rgba(30,20,12,0.45))",
       }}
     >
       <div
         style={{
           fontFamily: FONT_CURSIVE,
-          fontSize: 56,
-          color: "#f3e3d3",
+          fontSize: 66,
+          color: "#fbf1e6",
           transform: "rotate(-2deg)",
           lineHeight: 1,
+          WebkitTextStroke: "1.6px rgba(35,22,13,0.6)",
+          textShadow:
+            "0 5px 10px rgba(20,12,7,0.7), 0 12px 30px rgba(20,12,7,0.5)",
         }}
       >
-        {cursiveWord}
+        {renderEmphasis(cursiveWord, "#e0a75e")}
       </div>
       <div
         style={{
           fontFamily: FONT_FINE_MEDIUM,
-          fontSize: 26,
-          color: "#e8c9b4",
-          letterSpacing: "0.08em",
-          marginTop: 4,
+          fontSize: 32,
+          color: "#f3ddc7",
+          letterSpacing: "0.05em",
+          marginTop: 6,
+          WebkitTextStroke: "0.5px rgba(35,22,13,0.45)",
+          textShadow: "0 3px 12px rgba(20,12,7,0.75)",
         }}
       >
-        {fineText}
+        {renderEmphasis(fineText, "#e0a75e")}
       </div>
     </div>
   );

@@ -1,11 +1,12 @@
 import React from "react";
 import { interpolate, spring, useCurrentFrame, useVideoConfig } from "remotion";
+import { renderEmphasis } from "./EmphasisText";
 import { FONT_CURSIVE, FONT_FINE_MEDIUM } from "./fonts";
 
 /**
  * Titular editorial de dos tonos: una palabra grande en cursiva (firma)
- * y una linea en letra fina con tracking amplio, superpuestas con un leve
- * giro para una composicion mas llamativa que un bloque de texto plano.
+ * y una linea en letra fina con tracking amplio. Fuerte contraste via
+ * stroke + sombra (no caja) para que se lea sobre cualquier fondo.
  */
 export const EditorialTitle: React.FC<{
   cursive: string;
@@ -16,15 +17,17 @@ export const EditorialTitle: React.FC<{
   fineSize?: number;
   cursiveColor?: string;
   fineColor?: string;
+  accentColor?: string;
 }> = ({
   cursive,
   fine,
   startDelay = 0,
   align = "center",
-  cursiveSize = 128,
-  fineSize = 30,
-  cursiveColor = "#f3e3d3",
-  fineColor = "#e8c9b4",
+  cursiveSize = 150,
+  fineSize = 36,
+  cursiveColor = "#fbf1e6",
+  fineColor = "#f3ddc7",
+  accentColor = "#e0a75e",
 }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
@@ -60,11 +63,13 @@ export const EditorialTitle: React.FC<{
           color: cursiveColor,
           opacity: cursiveOpacity,
           transform: `translateY(${cursiveY}px) rotate(-4deg)`,
-          textShadow: "0 6px 24px rgba(40,25,15,0.35)",
+          WebkitTextStroke: "2px rgba(35,22,13,0.65)",
+          textShadow:
+            "0 6px 10px rgba(20,12,7,0.7), 0 14px 40px rgba(20,12,7,0.55)",
           lineHeight: 1,
         }}
       >
-        {cursive}
+        {renderEmphasis(cursive, accentColor)}
       </div>
       <div
         style={{
@@ -72,13 +77,15 @@ export const EditorialTitle: React.FC<{
           fontSize: fineSize,
           color: fineColor,
           opacity: fineOpacity,
-          transform: `translateX(${fineX}px) translateY(-10px)`,
-          letterSpacing: "0.42em",
+          transform: `translateX(${fineX}px) translateY(-6px)`,
+          letterSpacing: "0.38em",
           textTransform: "uppercase",
           marginLeft: align === "center" ? 0 : 6,
+          WebkitTextStroke: "0.6px rgba(35,22,13,0.5)",
+          textShadow: "0 3px 12px rgba(20,12,7,0.75)",
         }}
       >
-        {fine}
+        {renderEmphasis(fine, accentColor)}
       </div>
     </div>
   );
